@@ -4,7 +4,7 @@ lazy val rootProject = (project in file(".")).settings(
   Seq(
     name := "tapir-example",
     version := "0.1.0-SNAPSHOT",
-    organization := "com.softwaremill",
+    organization := "com.janikdotzel",
     scalaVersion := "2.13.10",
     libraryDependencies ++= Seq(
       "com.softwaremill.sttp.tapir" %% "tapir-netty-server" % tapirVersion,

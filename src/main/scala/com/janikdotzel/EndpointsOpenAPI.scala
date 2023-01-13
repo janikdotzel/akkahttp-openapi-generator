@@ -1,4 +1,4 @@
-package com.softwaremill
+package com.janikdotzel
 
 import sttp.apispec.openapi.OpenAPI
 import sttp.tapir._

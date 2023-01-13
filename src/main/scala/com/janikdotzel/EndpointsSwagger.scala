@@ -1,4 +1,4 @@
-package com.softwaremill
+package com.janikdotzel
 
 import sttp.tapir._
 
