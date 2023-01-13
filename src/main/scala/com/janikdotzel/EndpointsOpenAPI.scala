@@ -3,20 +3,28 @@ package com.janikdotzel
 import sttp.apispec.openapi.OpenAPI
 import sttp.tapir._
 import sttp.tapir.docs.openapi.OpenAPIDocsInterpreter
-import sttp.apispec.openapi.Server
 import sttp.apispec.openapi.circe.yaml._
-import io.circe.Printer
 import io.circe.syntax._
 import sttp.apispec.openapi.circe._
+import sttp.tapir.server.ServerEndpoint
+
+import scala.concurrent.Future
 
 object EndpointsOpenAPI {
 
-  val booksListingEndpoint: Endpoint[Unit, String, Unit, Unit, Any] = endpoint.in(path[String]("bookId"))
+  case class User(name: String) extends AnyVal
 
-  val docsWithServers: OpenAPI = OpenAPIDocsInterpreter()
-    .toOpenAPI(booksListingEndpoint, "My Bookshop", "1.0")
-    .servers(List(Server("https://api.example.com/v1")))
+  val helloEndpoint = endpoint.get
+    .in("hello")
+    .in(query[User]("name"))
+    .out(stringBody)
 
-  val yaml: String = docsWithServers.toYaml
-  val json: String = docsWithServers.asJson.spaces2
+  val helloServerEndpoint =
+    helloEndpoint.serverLogicSuccess(user => Future.successful(s"Hello ${user.name}"))
+
+  val openApi: OpenAPI = OpenAPIDocsInterpreter()
+    .toOpenAPI(helloServerEndpoint, "My Bookshop", "1.0")
+
+  val yaml: String = openApi.toYaml
+  val json: String = openApi.asJson.spaces2
 }

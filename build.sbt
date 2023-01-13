@@ -13,7 +13,8 @@ lazy val rootProject = (project in file(".")).settings(
       "com.softwaremill.sttp.tapir" %% "tapir-swagger-ui-bundle" % tapirVersion,
       "com.softwaremill.sttp.tapir" %% "tapir-openapi-docs" % "1.2.5",
       "com.softwaremill.sttp.apispec" %% "openapi-circe-yaml" % "0.3.1",
-      "ch.qos.logback" % "logback-classic" % "1.4.5",
+      "com.softwaremill.sttp.tapir" %% "tapir-akka-http-server" % tapirVersion,
+"ch.qos.logback" % "logback-classic" % "1.4.5",
       // Akka HTTP
       "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
       "com.typesafe.akka" %% "akka-stream" % akkaVersion,
