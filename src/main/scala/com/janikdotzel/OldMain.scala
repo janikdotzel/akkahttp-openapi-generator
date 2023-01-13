@@ -7,7 +7,7 @@ import scala.concurrent.{Await, ExecutionContext, Future}
 import scala.io.StdIn
 import ExecutionContext.Implicits.global
 
-object Main {
+object OldMain {
 
 
   def main(args: Array[String]): Unit = {
