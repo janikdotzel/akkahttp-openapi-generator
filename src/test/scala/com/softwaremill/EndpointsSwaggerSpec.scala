@@ -1,6 +1,6 @@
 package com.softwaremill
 
-import com.softwaremill.Endpoints._
+import com.softwaremill.EndpointsSwagger._
 import org.scalatest.EitherValues
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -13,7 +13,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 import scala.concurrent.duration.Duration
 
-class EndpointsSpec extends AnyFlatSpec with Matchers with EitherValues {
+class EndpointsSwaggerSpec extends AnyFlatSpec with Matchers with EitherValues {
 
   it should "return hello message" in {
     // given
