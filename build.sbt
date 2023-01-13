@@ -1,4 +1,6 @@
 val tapirVersion = "1.2.5"
+lazy val akkaHttpVersion = "10.4.0"
+lazy val akkaVersion = "2.7.0"
 
 lazy val rootProject = (project in file(".")).settings(
   Seq(
@@ -12,8 +14,10 @@ lazy val rootProject = (project in file(".")).settings(
       "com.softwaremill.sttp.tapir" %% "tapir-openapi-docs" % "1.2.5",
       "com.softwaremill.sttp.apispec" %% "openapi-circe-yaml" % "0.3.1",
       "ch.qos.logback" % "logback-classic" % "1.4.5",
-      "com.softwaremill.sttp.tapir" %% "tapir-sttp-stub-server" % tapirVersion % Test,
-      "org.scalatest" %% "scalatest" % "3.2.15" % Test
+      // Akka HTTP
+      "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
+      "com.typesafe.akka" %% "akka-stream" % akkaVersion,
+      "com.typesafe.akka" %% "akka-http" % akkaHttpVersion
     )
   )
 )
